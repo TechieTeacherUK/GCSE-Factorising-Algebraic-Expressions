@@ -1,1 +1,350 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-slate-50">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edexcel GCSE Maths - Factorising Expressions</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['$$', '$$'], ['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+      options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'] }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    mjx-container { max-width: 100%; overflow-x: auto; overflow-y: hidden; padding-bottom: 2px; }
+    mjx-container[display="true"] { margin: 0.5em 0 !important; }
+  </style>
+</head>
+<body class="h-full flex flex-col text-slate-800 antialiased font-sans">
+
+  <header class="bg-sky-900 text-white shadow-lg border-b border-sky-700">
+    <div class="max-w-6xl mx-auto px-4 py-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+      <div class="flex items-center space-x-3">
+        <span class="bg-sky-600 text-sky-100 text-xs font-bold px-2.5 py-1 rounded-md uppercase tracking-wider">Edexcel GCSE (1MA1)</span>
+        <h1 class="text-xl sm:text-2xl font-extrabold tracking-tight">Algebra: Factorising Expressions</h1>
+      </div>
+      <div class="flex items-center space-x-2 text-sm text-sky-200">
+        <span class="inline-block w-2.5 h-2.5 rounded-full bg-amber-400 animate-pulse"></span>
+        <span>Interactive Practice Hub</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-1 max-w-6xl w-full mx-auto px-4 py-8 sm:px-6 lg:px-8 space-y-8">
+
+    <!-- Theory -->
+    <section class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 sm:p-8">
+      <h2 class="text-xl font-bold text-slate-900 mb-6">Theory &amp; Key Rules</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-slate-50 border border-slate-200 rounded-xl p-5">
+          <div class="flex items-center space-x-2 text-sky-700 font-bold mb-2">
+            <span class="w-6 h-6 rounded-full bg-sky-100 flex items-center justify-center text-xs">1</span>
+            <h3>Spot the common factor</h3>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-3">Find the highest common factor (the HCF, or the biggest number that divides exactly into every term) and take it outside a bracket.</p>
+          <div class="text-xs bg-white border border-slate-200 rounded-lg p-2.5 text-center font-mono text-sky-900">$$6x + 9 = 3(2x + 3)$$</div>
+        </div>
+        <div class="bg-slate-50 border border-slate-200 rounded-xl p-5">
+          <div class="flex items-center space-x-2 text-sky-700 font-bold mb-2">
+            <span class="w-6 h-6 rounded-full bg-sky-100 flex items-center justify-center text-xs">2</span>
+            <h3>Factorising quadratics</h3>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-3">A "quadratic" just means an expression with an x&sup2; term in it.<br><br>In x&sup2; + bx + c, "b" is the number in front of x (called its coefficient) and "c" is the plain number on its own (called the constant).<br><br>To factorise, find two numbers that multiply together to give c and add together to give b.</p>
+          <div class="text-xs bg-white border border-slate-200 rounded-lg p-2.5 text-center font-mono text-sky-900">$$x^2 + bx + c = (x + p)(x + q)$$</div>
+        </div>
+        <div class="bg-slate-50 border border-slate-200 rounded-xl p-5">
+          <div class="flex items-center space-x-2 text-sky-700 font-bold mb-2">
+            <span class="w-6 h-6 rounded-full bg-sky-100 flex items-center justify-center text-xs">3</span>
+            <h3>Difference of two squares</h3>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-3">A "difference of two squares" is one square number (or square term) with another one subtracted from it, like a&sup2; - b&sup2;.<br><br>Take out a common factor first if there is one, then it always splits into two matching brackets &mdash; one with a minus, one with a plus.</p>
+          <div class="text-xs bg-white border border-slate-200 rounded-lg p-2.5 text-center font-mono text-sky-900">$$a^2 - b^2 = (a - b)(a + b)$$</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Examples -->
+    <section class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 sm:p-8">
+      <h2 class="text-xl font-bold text-slate-900 mb-6">Lesson Worked Examples</h2>
+      <div class="space-y-4">
+
+        <div class="border border-slate-200 rounded-xl overflow-hidden">
+          <button onclick="toggleAccordion('ex1')" class="w-full bg-slate-50 hover:bg-slate-100 p-4 text-left font-semibold flex justify-between items-center gap-3 text-slate-800 text-sm sm:text-base">
+            <span class="flex items-center gap-3 min-w-0 flex-1">
+              <span class="shrink-0 bg-sky-100 text-sky-800 text-xs px-2.5 py-1 rounded-md font-bold">Example 1 [2 marks]</span>
+              <span class="min-w-0">Factorise $$12x - 18$$ fully.</span>
+            </span>
+            <span id="ex1-icon" class="shrink-0 transition-transform duration-200 text-slate-500">&#9656;</span>
+          </button>
+          <div id="ex1-body" class="hidden p-5 bg-white border-t border-slate-200 space-y-3 text-sm text-slate-700">
+            <p><strong>1. Find the HCF of 12 and 18</strong> (the biggest number that divides exactly into both, with nothing left over): $$\text{HCF} = 6$$</p>
+            <p><strong>2. Divide each term by 6:</strong> $$12x \div 6 = 2x, \quad 18 \div 6 = 3$$</p>
+            <p class="pt-2 font-bold text-sky-900 border-t border-slate-100">$$\text{Final Result: } 6(2x - 3)$$</p>
+          </div>
+        </div>
+
+        <div class="border border-slate-200 rounded-xl overflow-hidden">
+          <button onclick="toggleAccordion('ex2')" class="w-full bg-slate-50 hover:bg-slate-100 p-4 text-left font-semibold flex justify-between items-center gap-3 text-slate-800 text-sm sm:text-base">
+            <span class="flex items-center gap-3 min-w-0 flex-1">
+              <span class="shrink-0 bg-sky-100 text-sky-800 text-xs px-2.5 py-1 rounded-md font-bold">Example 2 [3 marks]</span>
+              <span class="min-w-0">Factorise $$x^2 + 2x - 15$$ fully.</span>
+            </span>
+            <span id="ex2-icon" class="shrink-0 transition-transform duration-200 text-slate-500">&#9656;</span>
+          </button>
+          <div id="ex2-body" class="hidden p-5 bg-white border-t border-slate-200 space-y-3 text-sm text-slate-700">
+            <p><strong>1. Find two numbers that multiply to -15 and add to 2:</strong> $$5 \times (-3) = -15, \quad 5 + (-3) = 2$$</p>
+            <p><strong>2. Write as two brackets:</strong> $$(x + 5)(x - 3)$$</p>
+            <p class="pt-2 font-bold text-sky-900 border-t border-slate-100">$$\text{Final Result: } (x + 5)(x - 3)$$</p>
+          </div>
+        </div>
+
+        <div class="border border-slate-200 rounded-xl overflow-hidden">
+          <button onclick="toggleAccordion('ex3')" class="w-full bg-slate-50 hover:bg-slate-100 p-4 text-left font-semibold flex justify-between items-center gap-3 text-slate-800 text-sm sm:text-base">
+            <span class="flex items-center gap-3 min-w-0 flex-1">
+              <span class="shrink-0 bg-sky-100 text-sky-800 text-xs px-2.5 py-1 rounded-md font-bold">Example 3 [4 marks]</span>
+              <span class="min-w-0">Factorise $$20x^2 - 5$$ fully.</span>
+            </span>
+            <span id="ex3-icon" class="shrink-0 transition-transform duration-200 text-slate-500">&#9656;</span>
+          </button>
+          <div id="ex3-body" class="hidden p-5 bg-white border-t border-slate-200 space-y-3 text-sm text-slate-700">
+            <p><strong>1. Take out the common factor 5 first:</strong> $$20x^2 - 5 = 5(4x^2 - 1)$$</p>
+            <p><strong>2. Spot the difference of two squares</strong> (since $$4x^2 = (2x)^2$$ and $$1 = 1^2$$):</p>
+            <p class="pl-4">$$4x^2 - 1 = (2x - 1)(2x + 1)$$</p>
+            <p class="pt-2 font-bold text-sky-900 border-t border-slate-100">$$\text{Final Result: } 5(2x - 1)(2x + 1)$$</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Generator -->
+    <section class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 sm:p-8 space-y-6">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-200">
+        <div>
+          <h2 class="text-xl font-bold text-slate-900">Dynamic Question Generator</h2>
+          <p class="text-xs text-slate-500 mt-0.5">Endless practice questions in authentic Edexcel exam style.</p>
+        </div>
+        <div class="flex flex-wrap gap-1 p-1 bg-slate-100 rounded-xl">
+          <button id="btn-level1" onclick="setDifficulty('level1')" class="px-3 py-1.5 rounded-lg text-xs font-semibold transition-all bg-sky-600 text-white shadow-sm whitespace-nowrap">Level 1 (Common factor)</button>
+          <button id="btn-level2" onclick="setDifficulty('level2')" class="px-3 py-1.5 rounded-lg text-xs font-semibold transition-all text-slate-600 hover:text-slate-900 whitespace-nowrap">Level 2 (Quadratics)</button>
+          <button id="btn-level3" onclick="setDifficulty('level3')" class="px-3 py-1.5 rounded-lg text-xs font-semibold transition-all text-slate-600 hover:text-slate-900 whitespace-nowrap">Level 3 (Diff. of squares)</button>
+          <button id="btn-level4" onclick="setDifficulty('level4')" class="px-3 py-1.5 rounded-lg text-xs font-semibold transition-all text-slate-600 hover:text-slate-900 whitespace-nowrap">Level 4 (Mixed)</button>
+        </div>
+      </div>
+
+      <div class="bg-sky-50/50 border border-sky-100 rounded-2xl p-6 space-y-6">
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <span id="question-badge" class="bg-sky-100 text-sky-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Level 1</span>
+          <div class="flex items-center space-x-4 text-xs sm:text-sm font-medium text-slate-600">
+            <span>Score: <strong id="score-counter" class="text-sky-700 font-bold">0</strong>/<span id="total-counter">0</span></span>
+            <span>Streak: <strong id="streak-counter" class="text-amber-600 font-bold">0 &#128293;</strong></span>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl p-6 border border-sky-100 shadow-sm text-center min-h-[100px] flex items-center justify-center">
+          <div id="question-display" class="text-base sm:text-lg font-medium text-slate-900 leading-relaxed">Generating question...</div>
+        </div>
+
+        <div class="bg-white rounded-xl p-6 border border-sky-100 shadow-sm space-y-4">
+          <h3 class="text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">Enter the fully factorised form:</h3>
+          <div id="inputs-container" class="flex flex-wrap items-center justify-center gap-3 text-sm font-semibold"></div>
+          <p id="inputs-hint" class="text-xs text-center text-slate-400"></p>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-center gap-3 pt-2">
+          <button onclick="checkAnswer()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-6 py-2.5 rounded-xl shadow-md transition-all text-sm">Submit Answer</button>
+          <button onclick="generateQuestion()" class="bg-slate-700 hover:bg-slate-800 text-white font-bold px-6 py-2.5 rounded-xl shadow-md transition-all text-sm">New Question</button>
+          <button onclick="toggleSolution()" class="bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold px-5 py-2.5 rounded-xl transition-all text-sm">Toggle Worked Solution</button>
+        </div>
+
+        <div id="feedback-area" class="hidden rounded-xl p-4 text-center font-bold text-sm transition-all"></div>
+
+        <div id="solution-drawer" class="hidden bg-white rounded-xl p-6 border border-slate-200 text-slate-700 text-sm space-y-2">
+          <h4 class="font-bold text-sky-900 border-b border-slate-100 pb-2">Full Worked Solution:</h4>
+          <div id="solution-content" class="space-y-2"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-slate-900 text-slate-400 text-xs py-6 border-t border-slate-800 text-center">
+    <div class="max-w-6xl mx-auto px-4"><p>Edexcel GCSE Mathematics (1MA1) &bull; Algebra: Factorising Expressions Practice Module</p></div>
+  </footer>
+
+  <script>
+    let currentDifficulty = 'level1';
+    let currentQuestionData = {};
+    let score = 0, total = 0, streak = 0;
+
+    function toggleAccordion(id) {
+      const body = document.getElementById(id + '-body');
+      const icon = document.getElementById(id + '-icon');
+      body.classList.toggle('hidden');
+      icon.classList.toggle('rotate-90');
+    }
+
+    function gcd(a, b) { a = Math.abs(a); b = Math.abs(b); while (b) { [a, b] = [b, a % b]; } return a || 1; }
+    function getRandomInt(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; }
+    function signStr(n) { return n >= 0 ? `+ ${n}` : `- ${Math.abs(n)}`; }
+
+    function setDifficulty(diff) {
+      currentDifficulty = diff;
+      ['level1', 'level2', 'level3', 'level4'].forEach(d => {
+        const btn = document.getElementById('btn-' + d);
+        btn.className = d === diff
+          ? "px-3 py-1.5 rounded-lg text-xs font-semibold transition-all bg-sky-600 text-white shadow-sm whitespace-nowrap"
+          : "px-3 py-1.5 rounded-lg text-xs font-semibold transition-all text-slate-600 hover:text-slate-900 whitespace-nowrap";
+      });
+      const badge = document.getElementById('question-badge');
+      if (diff === 'level1') badge.innerText = "Level 1 (Common factor)";
+      if (diff === 'level2') badge.innerText = "Level 2 (Quadratics)";
+      if (diff === 'level3') badge.innerText = "Level 3 (Difference of two squares)";
+      if (diff === 'level4') badge.innerText = "Level 4 (Mixed: Levels 1-3)";
+      generateQuestion();
+    }
+
+    function genLevel1() {
+      // A x (+/-) B, HCF g, fully-reduced bracket (a, b coprime)
+      let g = getRandomInt(2, 9), a = getRandomInt(1, 6), b = getRandomInt(1, 6);
+      while (gcd(a, b) !== 1) { a = getRandomInt(1, 6); b = getRandomInt(1, 6); }
+      const sign = Math.random() < 0.5 ? 1 : -1;
+      const A = g * a, B = g * b * sign;
+      return {
+        inputs: [{ id: 'factor', label: 'Factor' }, { id: 'xcoef', label: 'x-coef' }, { id: 'const', label: 'Constant' }],
+        hint: 'Enter the common factor (the number you take out), then the number in front of x and the plain number left inside the bracket.',
+        factor: g, xcoef: a, const: b * sign,
+        texPrompt: `Factorise \\(${A}x ${signStr(B)}\\) fully.`,
+        solution: `
+          <p><strong>1. Find the HCF of ${A} and ${Math.abs(B)}</strong> (the biggest number that divides exactly into both): $$\\text{HCF} = ${g}$$</p>
+          <p><strong>2. Divide each term by ${g}:</strong> $$${A}x \\div ${g} = ${a}x, \\quad ${Math.abs(B)} \\div ${g} = ${b}$$</p>
+          <p class="pt-2 font-bold text-sky-900 border-t border-slate-100">$$\\text{Final Result: } ${g}(${a}x ${signStr(b * sign)})$$</p>
+        `
+      };
+    }
+
+    function genLevel2() {
+      // x^2 + Bx + C = (x+p)(x+q), p,q nonzero, order-independent
+      const pool = [-6, -5, -4, -3, -2, -1, 1, 2, 3, 4, 5, 6];
+      let p = pool[getRandomInt(0, pool.length - 1)];
+      let q = pool[getRandomInt(0, pool.length - 1)];
+      const B = p + q, C = p * q;
+      return {
+        inputs: [{ id: 'p', label: 'p (in x + p)' }, { id: 'q', label: 'q (in x + q)' }],
+        hint: 'Enter the two plain numbers that go inside the brackets, in either order.',
+        unordered: true, p, q,
+        texPrompt: `Factorise \\(x^2 ${signStr(B)}x ${signStr(C)}\\) fully.`,
+        solution: `
+          <p><strong>1. Find two numbers that multiply to ${C} and add to ${B}:</strong> $$${p} \\times ${q} = ${C}, \\quad ${p} + ${q} = ${B}$$</p>
+          <p class="pt-2 font-bold text-sky-900 border-t border-slate-100">$$\\text{Final Result: } (x ${signStr(p)})(x ${signStr(q)})$$</p>
+        `
+      };
+    }
+
+    function genLevel3() {
+      // A x^2 - B, A = g*n^2, B = g*m^2 -> g(nx-m)(nx+m)
+      let g = getRandomInt(1, 5), n = getRandomInt(1, 4), m = getRandomInt(1, 6);
+      const n2 = n * n, m2 = m * m;
+      const A = g * n2, B = g * m2;
+      return {
+        inputs: [{ id: 'factor', label: 'Factor' }, { id: 'xcoef', label: 'x-coef' }, { id: 'const', label: 'Constant' }],
+        hint: 'Enter the common factor you take out first, then the number in front of x and the plain number used in both brackets.',
+        factor: g, xcoef: n, const: m,
+        texPrompt: `Factorise \\(${A}x^2 - ${B}\\) fully.`,
+        solution: `
+          <p><strong>1. Take out the common factor ${g}:</strong> $$${A}x^2 - ${B} = ${g}(${n2}x^2 - ${m2})$$</p>
+          <p><strong>2. Spot the difference of two squares</strong> (since $$${n2}x^2 = (${n}x)^2$$ and $$${m2} = ${m}^2$$):</p>
+          <p class="pt-2 font-bold text-sky-900 border-t border-slate-100">$$\\text{Final Result: } ${g}(${n}x - ${m})(${n}x + ${m})$$</p>
+        `
+      };
+    }
+
+    function genLevel4() {
+      const pick = getRandomInt(1, 3);
+      if (pick === 1) return genLevel1();
+      if (pick === 2) return genLevel2();
+      return genLevel3();
+    }
+
+    function generateQuestion() {
+      document.getElementById('feedback-area').className = 'hidden';
+      document.getElementById('solution-drawer').classList.add('hidden');
+
+      let qData;
+      if (currentDifficulty === 'level1') qData = genLevel1();
+      else if (currentDifficulty === 'level2') qData = genLevel2();
+      else if (currentDifficulty === 'level3') qData = genLevel3();
+      else qData = genLevel4();
+
+      currentQuestionData = qData;
+      document.getElementById('question-display').innerHTML = qData.texPrompt;
+      document.getElementById('solution-content').innerHTML = qData.solution;
+      document.getElementById('inputs-hint').innerHTML = qData.hint || '';
+
+      const container = document.getElementById('inputs-container');
+      container.innerHTML = '';
+      qData.inputs.forEach(inp => {
+        const field = document.createElement('div');
+        field.className = 'flex items-center space-x-2 bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-lg';
+        field.innerHTML = `
+          <label for="input-${inp.id}" class="font-bold text-sky-900">${inp.label} =</label>
+          <input type="text" id="input-${inp.id}" placeholder="0" class="w-16 px-2 py-1 border border-slate-300 rounded text-center focus:outline-none focus:ring-2 focus:ring-sky-500 font-mono text-base">
+        `;
+        container.appendChild(field);
+      });
+
+      if (window.MathJax && window.MathJax.typesetPromise) MathJax.typesetPromise();
+    }
+
+    function checkAnswer() {
+      const q = currentQuestionData;
+      const vals = {};
+      let validInput = true;
+      q.inputs.forEach(inp => {
+        const v = parseInt(document.getElementById('input-' + inp.id).value, 10);
+        if (!Number.isFinite(v)) validInput = false;
+        vals[inp.id] = v;
+      });
+
+      total++;
+      document.getElementById('total-counter').innerText = total;
+      const feedback = document.getElementById('feedback-area');
+      feedback.classList.remove('hidden');
+
+      let correct = false;
+      if (validInput) {
+        if (q.unordered) {
+          correct = (vals.p === q.p && vals.q === q.q) || (vals.p === q.q && vals.q === q.p);
+        } else {
+          correct = q.inputs.every(inp => vals[inp.id] === q[inp.id]);
+        }
+      }
+
+      if (correct) {
+        score++; streak++;
+        document.getElementById('score-counter').innerText = score;
+        document.getElementById('streak-counter').innerText = streak + ' \u{1F525}';
+        feedback.className = 'rounded-xl p-4 text-center font-bold text-sm bg-emerald-100 text-emerald-800 border border-emerald-200';
+        feedback.innerText = "\u2728 Correct!";
+      } else {
+        streak = 0;
+        document.getElementById('streak-counter').innerText = '0 \u{1F525}';
+        feedback.className = 'rounded-xl p-4 text-center font-bold text-sm bg-rose-100 text-rose-800 border border-rose-200';
+        const expectedStr = q.inputs.map(inp => `${inp.label} = ${q[inp.id]}`).join(', ');
+        feedback.innerText = `\u274C Not quite. Expected: ${expectedStr}. Toggle the worked solution to see why!`;
+      }
+    }
+
+    function toggleSolution() {
+      const drawer = document.getElementById('solution-drawer');
+      drawer.classList.toggle('hidden');
+      if (!drawer.classList.contains('hidden') && window.MathJax) MathJax.typesetPromise();
+    }
+
+    window.onload = generateQuestion;
+  </script>
+</body>
+</html>
 
